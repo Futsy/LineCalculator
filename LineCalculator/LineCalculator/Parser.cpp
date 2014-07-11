@@ -8,7 +8,7 @@
  * This is used to confirm that a token is an operator
  */
 QChar Parser::m_operators[] = {
-	'^', '*', '/', '-', '_', '+', '(', ')'
+	'(', ')', '*', '+', '-', '/', '^', '_'
 };
 
 
@@ -34,12 +34,13 @@ int Parser::ToRPN(const QString& expression)
 		const auto current = expression[i];
 
 		//! If the token is a number, then add it to the output queue.
-		if (current.digitValue() != -1) {
+		//\todo: this does not accept numbers with dots (1234.1234)
+		if (current.digitValue() != -1 || current == '.') {
 			QString number = current;
 
 			//! Eat digits untill something else appears
 			for (int j = i + 1; j < expression.size(); j++, i++) {
-				if (expression[j].digitValue() != -1) {
+				if (expression[j].digitValue() != -1 || expression[j] == '.') {
 					number += expression[j];
 				}
 				else {
@@ -55,7 +56,7 @@ int Parser::ToRPN(const QString& expression)
 		char toChar = current.toLatin1();
 
 		//! No operator
-		if (std::find(std::begin(m_operators), std::end(m_operators), toChar) == std::end(m_operators)) {
+		if (!std::binary_search(std::begin(m_operators), std::end(m_operators), toChar)) {
 			continue;
 		}
 
@@ -138,7 +139,7 @@ int Parser::PostFixRPN()
 		//! If the token is a number
 		if (e[0].digitValue() != -1) {			
 			//! Push it onto the stack.
-			m_result.push(mpz_class(e.toStdString()));
+			m_result.push(mpf_class(e.toStdString()));
 		}
 		else { 
 
@@ -184,8 +185,20 @@ int Parser::PostFixRPN()
 		}
 	}
 
+
 	mp_exp_t exp;
 	m_solution = m_result.top().get_str(exp);
-		
+
+	const int unaryOccurence = std::count(std::begin(m_solution), std::end(m_solution), '-');
+	const int actualSize = m_solution.size() - unaryOccurence;
+	for (int i = actualSize + 1; i <= exp; i++) {
+		m_solution += "0";
+	}
+	
+
+	if (exp != m_solution.size() - unaryOccurence) {
+		m_solution.insert(exp + unaryOccurence, ".");
+	}
+
 	return static_cast<int>(ReturnCode::OK);	
 }

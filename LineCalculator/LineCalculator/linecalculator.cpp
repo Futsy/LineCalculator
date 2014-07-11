@@ -15,9 +15,9 @@ LineCalculator::LineCalculator(QWidget* parent)
 	//! Cut the window
 	setWindowFlags(Qt::FramelessWindowHint);
 
-
-	//m_parser.ToRPN("3 + 4");
-	//m_parser.PostFixRPN();
+	setAttribute(Qt::WA_NoSystemBackground, true);
+	setAttribute(Qt::WA_TranslucentBackground, true);
+	setAttribute(Qt::WA_PaintOnScreen);
 
 	//! Use settings to set application information
 	setWindowTitle(Settings::m_applicationTitle + " - " 
@@ -35,7 +35,7 @@ void LineCalculator::paintEvent(QPaintEvent* event)
 { 
 	QPainter painter(this);
   
-	QBrush background(QColor(255, 255, 255));
+	QBrush background(QColor(255, 255, 255, 240));
 	QPen border(QColor(190, 190, 190));
 
 	painter.setBrush(background);
@@ -59,6 +59,7 @@ bool LineCalculator::eventFilter(QObject* obj, QEvent* event)
 		QKeyEvent* key = static_cast<QKeyEvent*>(event);
 
 		if (key->key() == Qt::Key_Enter || key->key() == Qt::Key_Return) {
+			//\todo: handle the return of these functions
 			m_parser.ToRPN(ui.lineEdit->text());
 			m_parser.PostFixRPN();
 			ui.lineEdit->setText(m_parser.GetSolution());
