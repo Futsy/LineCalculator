@@ -1,6 +1,8 @@
 #ifndef LINECALCULATOR_HPP
 #define LINECALCULATOR_HPP
 
+#include <QKeyEvent>
+#include <QPainter>
 #include <QtWidgets/QWidget>
 
 #include "Parser.hpp"
@@ -20,6 +22,10 @@ private:
 
 private:
 	Ui::LineCalculatorClass ui;
+
+private Q_SLOTS:
+	void paintEvent(QPaintEvent* event);
+	bool eventFilter(QObject* obj, QEvent* event);
 
 };
 

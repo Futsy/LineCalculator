@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,12 +22,16 @@ QT_BEGIN_NAMESPACE
 class Ui_LineCalculatorClass
 {
 public:
+    QLineEdit *lineEdit;
 
     void setupUi(QWidget *LineCalculatorClass)
     {
         if (LineCalculatorClass->objectName().isEmpty())
             LineCalculatorClass->setObjectName(QStringLiteral("LineCalculatorClass"));
-        LineCalculatorClass->resize(600, 400);
+        LineCalculatorClass->resize(600, 98);
+        lineEdit = new QLineEdit(LineCalculatorClass);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(20, 50, 261, 20));
 
         retranslateUi(LineCalculatorClass);
 

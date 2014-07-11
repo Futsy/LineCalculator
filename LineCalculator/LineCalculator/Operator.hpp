@@ -7,7 +7,7 @@
 class Operator 
 {
 public:
-	explicit Operator(char token);
+	explicit Operator(char token, bool unary = false);
 
 public:
 	QChar m_token;

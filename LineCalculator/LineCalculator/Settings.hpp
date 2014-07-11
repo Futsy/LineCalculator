@@ -8,7 +8,7 @@ enum class StageType : char
 {
 	ALPHA	= 'A',
 	BETA	= 'B',
-	RELEASE = ' '
+	RELEASE = 'R'
 };
 
 
