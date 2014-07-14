@@ -8,7 +8,7 @@ To build this project with Visual Studio 2012:
     - Set version to 5.X+
 - Download and install MPIR
     - http://www.mpir.org/ (2.6.0)
-    - Extract the files and open the .sln (mpir-2.6.0/build.vc10/mpir.sln)
+    - Extract the files and open the .sln (mpir-2.6.0/build.vc10/mpir.sln) with VS2012
     - Switch to release mode
     - Set dll_mpir_gc as startup project
     - Build -> Build dll_mpir_gc
