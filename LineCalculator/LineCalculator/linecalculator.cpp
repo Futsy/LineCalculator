@@ -8,7 +8,7 @@
 LineCalculator::LineCalculator(QWidget* parent)
 	: QWidget(parent),
 	m_sizeGrip(this),
-	m_parser()
+	m_inputController()
 {
 	ui.setupUi(this);
 	installEventFilter(this);
@@ -72,9 +72,13 @@ bool LineCalculator::eventFilter(QObject* obj, QEvent* event)
 
 		if (key->key() == Qt::Key_Enter || key->key() == Qt::Key_Return) {
 			//\todo: handle the return of these functions
-			m_parser.ToRPN(ui.lineEdit->text());
-			m_parser.PostFixRPN();
-			ui.lineEdit->setText(m_parser.GetSolution());
+			auto result = m_inputController.ParseInput(ui.lineEdit->text());
+			
+			//! Interpreted
+			ui.label1->setText("RPN: " + result.first);
+
+			//! Interpreted
+			ui.lineEdit->setText(result.second);
 			
 			return true;
 		}

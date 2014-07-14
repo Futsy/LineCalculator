@@ -6,7 +6,7 @@
 #include <QSizeGrip>
 #include <QtWidgets/QWidget>
 
-#include "Parser.hpp"
+#include "InputController.hpp"
 #include "Settings.hpp"
 #include "ui_linecalculator.h"
 
@@ -20,8 +20,7 @@ public:
 
 private:
 	QSizeGrip m_sizeGrip;
-	Parser m_parser;
-
+	InputController m_inputController;
 
 private:
 	Ui::LineCalculatorClass ui;

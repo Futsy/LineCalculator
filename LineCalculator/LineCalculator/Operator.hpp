@@ -9,7 +9,7 @@ class Operator
 public:
 	explicit Operator(char token, bool unary = false);
 
-public:
+public: //\todo: refactor private
 	QChar m_token;
 	int m_precendence;
 		
