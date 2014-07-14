@@ -1,6 +1,9 @@
 LineCalculator
 ==============
 
+Simple calculator that computes results based on the users text input.
+
+==============
 To build this project with Visual Studio 2012:
 
 - Install the Qt VS Addin
