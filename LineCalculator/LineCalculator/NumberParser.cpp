@@ -1,4 +1,4 @@
-#include "Parser.hpp"
+#include "NumberParser.hpp"
 
 #include <algorithm>
 
@@ -7,7 +7,7 @@
  * Operator array
  * Used to confirm that a token is an operator
  */
-QChar Parser::m_operators[] = {
+QChar NumberParser::m_operators[] = {
 	'(', ')', '*', '+', '-', '/', '^', '_'
 };
 
@@ -18,7 +18,7 @@ QChar Parser::m_operators[] = {
  * @param const QString& expression
  * @return int - ReturnCode enum
  */
-int Parser::ToRPN(const QString& expression)
+int NumberParser::ToRPN(const QString& expression)
 {
 	//\todo: Possibly redundant when tokenized
 	if (expression.trimmed().isEmpty()) {
@@ -127,7 +127,7 @@ int Parser::ToRPN(const QString& expression)
  * Info: http://en.wikipedia.org/wiki/Reverse_Polish_notation
  * @return int - ReturnCode enum
  */
-int Parser::PostFixRPN() 
+int NumberParser::PostFixRPN() 
 {
 	//! Clear the result stack
 	while (!m_result.empty()) {
@@ -207,7 +207,7 @@ int Parser::PostFixRPN()
  * Function that returns the RPN Notation
  * @return QString
  */
-QString Parser::GetRPN() const  {
+QString NumberParser::GetRPN() const  {
 	QString RPN = "";
 	for (const auto& e : m_output) {
 		RPN += e;

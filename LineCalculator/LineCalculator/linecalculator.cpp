@@ -71,15 +71,21 @@ bool LineCalculator::eventFilter(QObject* obj, QEvent* event)
 		QKeyEvent* key = static_cast<QKeyEvent*>(event);
 
 		if (key->key() == Qt::Key_Enter || key->key() == Qt::Key_Return) {
-			//\todo: handle the return of these functions
+			//! Lock user input
+			ui.lineEdit->setDisabled(true);
+
+			//! Obtain result
 			auto result = m_inputController.ParseInput(ui.lineEdit->text());
 			
-			//! Interpreted
+			//! Set interpreted field
 			ui.label1->setText("RPN: " + result.first);
 
-			//! Interpreted
+			//! Set result in input field
 			ui.lineEdit->setText(result.second);
 			
+			//! Unlock user input
+			ui.lineEdit->setDisabled(false);
+
 			return true;
 		}
 	}

@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="LineCalculator">
-    </qresource>
+  <qresource prefix="LineCalculator">
+    <file>cogIcon.png</file>
+  </qresource>
 </RCC>

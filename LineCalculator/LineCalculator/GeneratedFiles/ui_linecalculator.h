@@ -31,7 +31,6 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_2;
-    QPushButton *pushButton;
     QSpacerItem *horizontalSpacer;
     QLabel *label1;
     QLineEdit *lineEdit;
@@ -54,13 +53,15 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton_2 = new QPushButton(LineCalculatorClass);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setStyleSheet(QLatin1String("QPushButton#pushButton_2:hover { border: 1px solid #BBD6FA; }\n"
+"QPushButton#pushButton_2:!hover { border: none; }"));
+        pushButton_2->setText(QStringLiteral(""));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/LineCalculator/cogIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon);
+        pushButton_2->setIconSize(QSize(16, 20));
 
         horizontalLayout_2->addWidget(pushButton_2);
-
-        pushButton = new QPushButton(LineCalculatorClass);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        horizontalLayout_2->addWidget(pushButton);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -92,9 +93,9 @@ public:
     void retranslateUi(QWidget *LineCalculatorClass)
     {
         LineCalculatorClass->setWindowTitle(QApplication::translate("LineCalculatorClass", "LineCalculator", 0));
-        pushButton_2->setText(QApplication::translate("LineCalculatorClass", "PushButton", 0));
-        pushButton->setText(QApplication::translate("LineCalculatorClass", "PushButton", 0));
         label1->setText(QString());
+        lineEdit->setText(QString());
+        lineEdit->setPlaceholderText(QApplication::translate("LineCalculatorClass", "Enter a mathematical expression (3 + 3, 5 * (-2 / 3)) ", 0));
     } // retranslateUi
 
 };

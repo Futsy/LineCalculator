@@ -24,7 +24,7 @@ enum class ReturnCode
 };
 
 
-class Parser 
+class NumberParser 
 {
 public:
 	int		ToRPN(const QString& expression);

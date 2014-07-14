@@ -44,6 +44,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>C:\Users\Floris 2\Desktop\mpir-2.6.0\dll\Win32\Release;$(IncludePath)</IncludePath>
+    <ReferencePath>C:\Users\Floris 2\Desktop\mpir-2.6.0\dll\Win32\Release;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Users\Floris 2\Desktop\mpir-2.6.0\dll\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,7 +99,7 @@
     <ClCompile Include="linecalculator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
-    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="NumberParser.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,7 +130,7 @@
     <ClInclude Include="GeneratedFiles\ui_linecalculator.h" />
     <ClInclude Include="InputController.hpp" />
     <ClInclude Include="Operator.hpp" />
-    <ClInclude Include="Parser.hpp" />
+    <ClInclude Include="NumberParser.hpp" />
     <ClInclude Include="Settings.hpp" />
   </ItemGroup>
   <ItemGroup>

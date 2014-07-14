@@ -3,7 +3,7 @@
 
 #include <QPair>
 
-#include "Parser.hpp"
+#include "NumberParser.hpp"
 
 
 class InputController 
@@ -12,7 +12,7 @@ public:
 	QPair<QString, QString> ParseInput(const QString& input);
 
 private:
-	Parser m_parser;
+	NumberParser m_parser;
 
 };
 
