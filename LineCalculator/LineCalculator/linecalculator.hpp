@@ -21,6 +21,7 @@ public:
 private:
 	QSizeGrip m_sizeGrip;
 	InputController m_inputController;
+	QPoint m_diff;
 
 private:
 	Ui::LineCalculatorClass ui;
@@ -29,6 +30,12 @@ private Q_SLOTS:
 	void paintEvent(QPaintEvent* event);
 	void resizeEvent(QResizeEvent* event);
 	bool eventFilter(QObject* obj, QEvent* event);
+
+	void mousePressEvent(QMouseEvent* event);
+	void mouseReleaseEvent(QMouseEvent* event);
+	void mouseMoveEvent(QMouseEvent* event);
+
+	void changeEvent(QEvent* event);
 
 };
 

@@ -40,12 +40,10 @@ int NumberParser::ToRPN(const QString& expression)
 
 			//! Eat digits untill something else appears
 			for (int j = i + 1; j < expression.size(); j++, i++) {
-				if (expression[j].digitValue() != -1 || expression[j] == '.') {
-					number += expression[j];
-				}
-				else {
+				if (expression[j].digitValue() == -1 && expression[j] != '.') {
 					break;
 				}
+				number += expression[j];
 			}
 
 			m_output.push_back(number);

@@ -8,7 +8,8 @@
 LineCalculator::LineCalculator(QWidget* parent)
 	: QWidget(parent),
 	m_sizeGrip(this),
-	m_inputController()
+	m_inputController(),
+	m_diff()
 {
 	ui.setupUi(this);
 	installEventFilter(this);
@@ -39,12 +40,17 @@ void LineCalculator::paintEvent(QPaintEvent* event)
 	QBrush background(QColor(255, 255, 255, 240));
 	QPen border(QColor(190, 190, 190));
 
-	painter.setBrush(background);
-	painter.setPen(Qt::SolidLine);
+	QPolygon frame;
+	frame <<  QPoint(4, 20)
+		<<  QPoint(20, 4)
+		<<  QPoint(width() - 4, 4)
+		<<  QPoint(width() - 4 , height() - 4)
+		<<  QPoint(4, height() - 4);
+  
 	painter.setPen(border);
-
-	//! Draw the rectangle in the original frame (subtract 1 to get right and bottom line)
-	painter.drawRect(0, 0, width() - 1, height() - 1);
+	painter.setBrush(background);
+  
+	painter.drawPolygon (frame);
 }
 
 
@@ -54,7 +60,7 @@ void LineCalculator::paintEvent(QPaintEvent* event)
  */
 void LineCalculator::resizeEvent(QResizeEvent* event)
 { 
-	m_sizeGrip.move(width() - 32, height() - 32);
+	m_sizeGrip.move(width() - 35, height() - 35);
 	m_sizeGrip.resize(32, 32);
 }
 
@@ -93,3 +99,43 @@ bool LineCalculator::eventFilter(QObject* obj, QEvent* event)
 }
 
 
+/**
+ * Function that responds to mouse pressing
+ * @param QMouseEvent* event
+ */
+void LineCalculator::mousePressEvent(QMouseEvent* event)
+{ 
+	m_diff = event->pos();
+	setCursor(QCursor(Qt::SizeAllCursor));
+}
+
+
+/**
+ * Function that responds to mouse releasing
+ * @param QMouseEvent* event
+ */
+void LineCalculator::mouseReleaseEvent(QMouseEvent* event)
+{ 
+	Q_UNUSED(event);
+	setCursor(QCursor(Qt::ArrowCursor));
+}
+
+
+/**
+ * Function that responds to mouse moving (moves window)
+ * @param QMouseEvent* event
+ */
+void LineCalculator::mouseMoveEvent(QMouseEvent* event)
+{ 
+	window()->move(event->globalPos() - m_diff);
+}
+
+
+/**
+ * Function that handles the window state change
+ * @param QEvent* event
+ */
+void LineCalculator::changeEvent(QEvent* event)
+{
+	ui.lineEdit->setFocus();
+}

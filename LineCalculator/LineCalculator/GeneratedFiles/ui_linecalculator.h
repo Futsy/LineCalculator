@@ -33,13 +33,14 @@ public:
     QPushButton *pushButton_2;
     QSpacerItem *horizontalSpacer;
     QLabel *label1;
+    QSpacerItem *verticalSpacer;
     QLineEdit *lineEdit;
 
     void setupUi(QWidget *LineCalculatorClass)
     {
         if (LineCalculatorClass->objectName().isEmpty())
             LineCalculatorClass->setObjectName(QStringLiteral("LineCalculatorClass"));
-        LineCalculatorClass->resize(498, 82);
+        LineCalculatorClass->resize(498, 92);
         LineCalculatorClass->setMinimumSize(QSize(498, 82));
         horizontalLayout = new QHBoxLayout(LineCalculatorClass);
         horizontalLayout->setSpacing(6);
@@ -76,8 +77,20 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        verticalSpacer = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer);
+
         lineEdit = new QLineEdit(LineCalculatorClass);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setPointSize(9);
+        lineEdit->setFont(font);
 
         verticalLayout->addWidget(lineEdit);
 
