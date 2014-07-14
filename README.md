@@ -4,7 +4,7 @@ LineCalculator
 To build this project with Visual Studio 2012:
 
 - Install the Qt VS Addin
-    - http://qt-project.org/downloads (Visual Studio Add-in 1.2.3 for Qt5)
+    - http://download.qt-project.org/official_releases/vsaddin/qt-vs-addin-1.2.3-opensource.exe
     - Set version to 5.X+
 - Download and install MPIR
     - http://www.mpir.org/ (2.6.0)
