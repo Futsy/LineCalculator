@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include <QPainter>
+#include <QSizeGrip>
 #include <QtWidgets/QWidget>
 
 #include "Parser.hpp"
@@ -18,13 +19,16 @@ public:
 	LineCalculator(QWidget* parent = 0);
 
 private:
+	QSizeGrip m_sizeGrip;
 	Parser m_parser;
+
 
 private:
 	Ui::LineCalculatorClass ui;
 
 private Q_SLOTS:
 	void paintEvent(QPaintEvent* event);
+	void resizeEvent(QResizeEvent* event);
 	bool eventFilter(QObject* obj, QEvent* event);
 
 };

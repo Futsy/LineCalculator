@@ -7,6 +7,7 @@
  */
 LineCalculator::LineCalculator(QWidget* parent)
 	: QWidget(parent),
+	m_sizeGrip(this),
 	m_parser()
 {
 	ui.setupUi(this);
@@ -44,6 +45,17 @@ void LineCalculator::paintEvent(QPaintEvent* event)
 
 	//! Draw the rectangle in the original frame (subtract 1 to get right and bottom line)
 	painter.drawRect(0, 0, width() - 1, height() - 1);
+}
+
+
+/**
+ * Function that resizes the window when dragged
+ * @param QResizeEvent* event
+ */
+void LineCalculator::resizeEvent(QResizeEvent* event)
+{ 
+	m_sizeGrip.move(width() - 32, height() - 32);
+	m_sizeGrip.resize(32, 32);
 }
 
 

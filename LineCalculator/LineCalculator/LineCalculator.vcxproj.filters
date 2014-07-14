@@ -39,12 +39,15 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{5a03c8d9-d146-4c5c-ae21-285d81276248}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{77ff8151-c2f7-4360-b87e-f38ef141bb85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{0cf31651-b375-414e-99ce-ca5b4fb9c1c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="linecalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_linecalculator.cpp">
@@ -65,16 +68,19 @@
     <ClCompile Include="Operator.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="linecalculator.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="linecalculator.hpp">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="linecalculator.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="linecalculator.qrc">
       <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="linecalculator.hpp">
+      <Filter>Header Files\UI</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

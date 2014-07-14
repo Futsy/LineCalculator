@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_LineCalculator_t {
-    QByteArrayData data[8];
-    char stringdata[70];
+    QByteArrayData data[10];
+    char stringdata[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,14 @@ QT_MOC_LITERAL(2, 26, 0),
 QT_MOC_LITERAL(3, 27, 12),
 QT_MOC_LITERAL(4, 40, 5),
 QT_MOC_LITERAL(5, 46, 11),
-QT_MOC_LITERAL(6, 58, 3),
-QT_MOC_LITERAL(7, 62, 7)
+QT_MOC_LITERAL(6, 58, 13),
+QT_MOC_LITERAL(7, 72, 11),
+QT_MOC_LITERAL(8, 84, 3),
+QT_MOC_LITERAL(9, 88, 7)
     },
     "LineCalculator\0paintEvent\0\0QPaintEvent*\0"
-    "event\0eventFilter\0obj\0QEvent*"
+    "event\0resizeEvent\0QResizeEvent*\0"
+    "eventFilter\0obj\0QEvent*"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +52,7 @@ static const uint qt_meta_data_LineCalculator[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,12 +60,14 @@ static const uint qt_meta_data_LineCalculator[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x08 /* Private */,
-       5,    2,   27,    2, 0x08 /* Private */,
+       1,    1,   29,    2, 0x08 /* Private */,
+       5,    1,   32,    2, 0x08 /* Private */,
+       7,    2,   35,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 7,    6,    4,
+    QMetaType::Void, 0x80000000 | 6,    4,
+    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 9,    8,    4,
 
        0        // eod
 };
@@ -73,7 +78,8 @@ void LineCalculator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         LineCalculator *_t = static_cast<LineCalculator *>(_o);
         switch (_id) {
         case 0: _t->paintEvent((*reinterpret_cast< QPaintEvent*(*)>(_a[1]))); break;
-        case 1: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
+        case 1: _t->resizeEvent((*reinterpret_cast< QResizeEvent*(*)>(_a[1]))); break;
+        case 2: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         default: ;
         }
@@ -105,13 +111,13 @@ int LineCalculator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

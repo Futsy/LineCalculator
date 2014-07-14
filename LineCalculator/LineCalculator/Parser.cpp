@@ -4,8 +4,8 @@
 
 
 /**
- * Operator vector
- * This is used to confirm that a token is an operator
+ * Operator array
+ * Used to confirm that a token is an operator
  */
 QChar Parser::m_operators[] = {
 	'(', ')', '*', '+', '-', '/', '^', '_'
@@ -184,7 +184,6 @@ int Parser::PostFixRPN()
 			}
 		}
 	}
-
 
 	mp_exp_t exp;
 	m_solution = m_result.top().get_str(exp);
