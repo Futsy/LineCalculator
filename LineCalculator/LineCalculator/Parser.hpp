@@ -30,6 +30,7 @@ public:
 	int		ToRPN(const QString& expression);
 	int		PostFixRPN();
 	QString GetSolution() const { return QString::fromStdString(m_solution); }
+	QString GetRPN() const;
 
 private:
 	std::stack<Operator>		m_queue;

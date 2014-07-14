@@ -13,8 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,16 +27,62 @@ QT_BEGIN_NAMESPACE
 class Ui_LineCalculatorClass
 {
 public:
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label1;
     QLineEdit *lineEdit;
 
     void setupUi(QWidget *LineCalculatorClass)
     {
         if (LineCalculatorClass->objectName().isEmpty())
             LineCalculatorClass->setObjectName(QStringLiteral("LineCalculatorClass"));
-        LineCalculatorClass->resize(600, 98);
+        LineCalculatorClass->resize(498, 82);
+        LineCalculatorClass->setMinimumSize(QSize(498, 82));
+        horizontalLayout = new QHBoxLayout(LineCalculatorClass);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        pushButton_2 = new QPushButton(LineCalculatorClass);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+
+        horizontalLayout_2->addWidget(pushButton_2);
+
+        pushButton = new QPushButton(LineCalculatorClass);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        horizontalLayout_2->addWidget(pushButton);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        label1 = new QLabel(LineCalculatorClass);
+        label1->setObjectName(QStringLiteral("label1"));
+        label1->setStyleSheet(QStringLiteral("color: rgb(121, 121, 121);"));
+
+        horizontalLayout_2->addWidget(label1);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
         lineEdit = new QLineEdit(LineCalculatorClass);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(20, 50, 261, 20));
+
+        verticalLayout->addWidget(lineEdit);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
 
         retranslateUi(LineCalculatorClass);
 
@@ -41,6 +92,9 @@ public:
     void retranslateUi(QWidget *LineCalculatorClass)
     {
         LineCalculatorClass->setWindowTitle(QApplication::translate("LineCalculatorClass", "LineCalculator", 0));
+        pushButton_2->setText(QApplication::translate("LineCalculatorClass", "PushButton", 0));
+        pushButton->setText(QApplication::translate("LineCalculatorClass", "PushButton", 0));
+        label1->setText(QString());
     } // retranslateUi
 
 };

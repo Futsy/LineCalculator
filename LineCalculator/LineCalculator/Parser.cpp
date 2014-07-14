@@ -4,8 +4,8 @@
 
 
 /**
- * Operator vector
- * This is used to confirm that a token is an operator
+ * Operator array
+ * Used to confirm that a token is an operator
  */
 QChar Parser::m_operators[] = {
 	'(', ')', '*', '+', '-', '/', '^', '_'
@@ -136,8 +136,8 @@ int Parser::PostFixRPN()
 
 	//! While there are input tokens left
 	for (const auto& e : m_output) {
-		//! If the token is a number
-		if (e[0].digitValue() != -1) {			
+		//! If the token is a number (Maybe they entered .1234 which is correct check for that as well)
+		if (e[0].digitValue() != -1 || (e.size() > 1 && e[1].digitValue() != -1)) {			
 			//! Push it onto the stack.
 			m_result.push(mpf_class(e.toStdString()));
 		}
@@ -185,7 +185,6 @@ int Parser::PostFixRPN()
 		}
 	}
 
-
 	mp_exp_t exp;
 	m_solution = m_result.top().get_str(exp);
 
@@ -197,8 +196,21 @@ int Parser::PostFixRPN()
 	
 
 	if (exp != m_solution.size() - unaryOccurence) {
-		m_solution.insert(exp + unaryOccurence, ".");
+		m_solution.insert((exp + unaryOccurence < 0) ? 0 : exp + unaryOccurence, ".");
 	}
 
 	return static_cast<int>(ReturnCode::OK);	
+}
+
+
+/**
+ * Function that returns the RPN Notation
+ * @return QString
+ */
+QString Parser::GetRPN() const  {
+	QString RPN = "";
+	for (const auto& e : m_output) {
+		RPN += e;
+	}
+	return RPN;
 }

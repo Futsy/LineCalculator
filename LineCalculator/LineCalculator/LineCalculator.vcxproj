@@ -92,6 +92,7 @@
     <ClCompile Include="GeneratedFiles\Release\moc_linecalculator.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="InputController.cpp" />
     <ClCompile Include="linecalculator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
@@ -124,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_linecalculator.h" />
+    <ClInclude Include="InputController.hpp" />
     <ClInclude Include="Operator.hpp" />
     <ClInclude Include="Parser.hpp" />
     <ClInclude Include="Settings.hpp" />

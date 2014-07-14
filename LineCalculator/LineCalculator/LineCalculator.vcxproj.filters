@@ -39,12 +39,21 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{5a03c8d9-d146-4c5c-ae21-285d81276248}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{0cf31651-b375-414e-99ce-ca5b4fb9c1c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{77ff8151-c2f7-4360-b87e-f38ef141bb85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{34c1c7a7-e5a1-4e4d-b25f-af1193a99df8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{a99e3060-0694-4b6e-b522-413d97290c35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="linecalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_linecalculator.cpp">
@@ -65,16 +74,22 @@
     <ClCompile Include="Operator.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="linecalculator.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="InputController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="linecalculator.hpp">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="linecalculator.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="linecalculator.qrc">
       <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="linecalculator.hpp">
+      <Filter>Header Files\View</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="Operator.hpp">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="InputController.hpp">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
